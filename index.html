@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+    <title>UpLift Aggie</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1 id="msg">Have a good day!</h1>
+    </div>
+  </body>
+
+  <script>
+    async function get_message() {
+      const response = await fetch('http://127.0.0.1:8000/get_message');
+      const jsonData = await response.json();
+      document.getElementById('msg').innerHTML = jsonData["text"];
+    }
+
+    get_message();
+  </script>
+</html>
