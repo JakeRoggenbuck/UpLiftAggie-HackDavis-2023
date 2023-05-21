@@ -24,7 +24,12 @@ def check_is_good_message(msg: str):
 @app.get("/get_message")
 def get_message():
     msg = random.choice(DATABASE)
-    msg.views += 1
+
+    # no guaranties in python
+    if msg.views is not None:
+        msg.views += 1
+    else:
+        msg.views = 0
     return msg
 
 
