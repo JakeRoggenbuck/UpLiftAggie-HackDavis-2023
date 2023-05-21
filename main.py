@@ -1,25 +1,31 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-
-# will be replaced later
-DATABASE = []
+import random
 
 
 class Message(BaseModel):
     text: str
-    views: int | None = None
+    views: int | None = 0
+
+
+starter = Message(text="Have a nice day!", views=0)
+
+# will be replaced later
+DATABASE = [starter]
 
 
 app = FastAPI()
 
 # use open api to determine this
 def check_is_good_message(msg: str):
-    return False
+    return True
 
 
 @app.get("/get_message")
 def get_message():
-    return {"Hack": "Davis"}
+    msg = random.choice(DATABASE)
+    msg.views += 1
+    return msg
 
 
 @app.post("/send_message")
