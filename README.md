@@ -1,5 +1,5 @@
 # UpLiftAggie
-Send a positive message to an Aggie! Simple can be powerful.
+Send a positive message to an Aggie! Simple can be powerful. It takes no effort to share kindness.
 
 ## Technical
 - Use OpenAI's gpt-3.5-turbo model to determine if messages are positive for content moderation
